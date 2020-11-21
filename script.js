@@ -1,32 +1,23 @@
-const money = 50000; 
+// 1) Создать переменную num со значением 266219 (тип данных число)
+let num = 266219; 
 
-let income = '50000';
+/*2) Вывести в консоль произведение (умножение) цифр этого числа
+Например: число 123, при помощи javaScript получить каждое цифру ( 1, 2, 3 ) и перемножить их.
+Правильно использовать цикл или методы перебора.*/
+let sum =1;
+for (i = 0; i < 6; i++){
+   sum*=Math.floor(num%10);
+   num /= 10;
+}
+console.log(sum);
 
-let addExpenses = 'иНтернет, такси, коммуналка';
+//3) Полученный результат возвести в степень 3, используя только 1 оператор (Math.pow не подходит)
+for (i = 0; i < 2; i++){
+   sum=sum*sum; 
+}
+console.log(sum);
+   
 
-let deposit = true;
-
-let mission = 500000;
-
-let period = 6;
-
-
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log("За",period, "месяцев цель заработать", mission, "рублей");
-console.log(addExpenses.toLowerCase().split(','));
-
-let budgetDay = money/30;
-
-console.log(budgetDay);
-
-/*  Вывести в консоль длину строки addExpenses
-
-   - Вывести в консоль “Период равен (period) месяцев” и “Цель заработать (mission) рублей/долларов/гривен/юани”
-   - Привести строку addExpenses к нижнему регистру и разбить строку на массив, вывести массив в консоль
-
-   - Объявить переменную budgetDay и присвоить дневной бюджет (доход за месяц / 30)
-
-   - Вывести в консоль budgetDay */
+//4) Вывести на экран первые 2 цифры полученного числа
+console.log(sum.toString().charAt(0));
+console.log(sum.toString().charAt(1));
