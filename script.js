@@ -1,57 +1,83 @@
 'use strict'
+
+let isNumber = function(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n)
+};
+
 let income = '50000';
 let mission = 500000;
 let period = 6;
 
 
 
-let money = prompt('Ваш месячный доход?');
+let money;
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 let deposit = confirm('Есть ли у вас депозит в банке?');
 
 
-let expenses1 = prompt('Введите обязательную статью расходов?');
-let amount1 = prompt('Во сколько это обойдется?');
-let expenses2 = prompt('Введите обязательную статью расходов?');
-let amount2 = prompt('Во сколько это обойдется?');
+let expenses = []; 
 
 
 
-//LESSON04
+//LESSON05
+//1) Переписать функцию start циклом do while
+let start = function() {
+
+    do {
+        money = prompt('Ваш месячный доход?');
+    } while (!isNumber(money));
+};
+
+start();
+
 let showTypeOf = function(data) {
     console.log(data, typeof(data));
-}
+};
 
 showTypeOf(money);
 
-/*1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц*/
+/*2) Добавить проверку что введённые данные являются числом, 
+которые мы получаем на вопрос 'Во сколько это обойдется?’ в функции  getExpensesMonth*/
+let getExpensesMonth = function() {
+    let sum = 0;
+    let pr;
 
-function getExpensesMonth (a , b) {
-    return Number(a)+ Number(b);
-}
+    for (let i = 0; i < 2; i++) {
 
-console.log( getExpensesMonth(amount1,amount2) );
+        expenses[i] = prompt('Введите обязательную статью расходов?');
+        
+        do {
+        pr = prompt('Во сколько это обойдется?');
+        } while (!isNumber(pr));
+
+        sum = sum + +pr;
+    }
+        
+    
+    console.log(sum);
+    return sum;
+};
+
+let expensesAmount = getExpensesMonth();
+
+console.log('Расходы за месяц: ' + expensesAmount);
 
 console.log( addExpenses.toLowerCase().split(',') );
 
-/*2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)*/
-function getAccumulatedMonth (a, b, c) {
-    return Number(a)-getExpensesMonth(b, c);
-}
+function getAccumulatedMonth(a) {
+    return Number(a)-expensesAmount;
+};
 
-/*3) Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth*/
-let accumulatedMonth  = getAccumulatedMonth(money, amount1, amount2);
+let accumulatedMonth  = getAccumulatedMonth(money);
 
-/*4) Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, 
-зная результат месячного накопления (accumulatedMonth) и возвращает результат*/
-function getTargetMonth (a, b) {
-    return Math.ceil(a/b);
-}
+/*3) Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута”
+необходимо выводить “Цель не будет достигнута”*/
+function getTargetMonth(a, b) {
+    return Math.ceil(a/b) < 0 ? 'Цель не будет достигнута' : 'Цель будет достигнута';
+};
 
 console.log( getTargetMonth(mission, accumulatedMonth) );
 
-/*5) Удалить из кода переменную budgetMonth
-6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)*/
 let budgetDay = accumulatedMonth/30;
 console.log(budgetDay);
 
@@ -66,6 +92,6 @@ if (budgetDay >= 1200) {
    } else {
    console.log('Что-то пошло не так');
    }
-}
+};
 
 console.log( getStatusIncom() );
