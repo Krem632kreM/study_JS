@@ -50,7 +50,7 @@ let getExpensesMonth = function() {
         pr = prompt('Во сколько это обойдется?');
         } while (!isNumber(pr));
 
-        sum = sum + +pr;
+        sum += +pr;
     }
         
     
@@ -64,16 +64,16 @@ console.log('Расходы за месяц: ' + expensesAmount);
 
 console.log( addExpenses.toLowerCase().split(',') );
 
-function getAccumulatedMonth(a) {
-    return Number(a)-expensesAmount;
+function getAccumulatedMonth(money) {
+    return Number(money)-expensesAmount;
 };
 
 let accumulatedMonth  = getAccumulatedMonth(money);
 
 /*3) Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута”
 необходимо выводить “Цель не будет достигнута”*/
-function getTargetMonth(a, b) {
-    return Math.ceil(a/b) < 0 ? 'Цель не будет достигнута' : 'Цель будет достигнута';
+function getTargetMonth(mission, accumulatedMonth) {
+    return Math.ceil(mission/accumulatedMonth) < 0 ? 'Цель не будет достигнута' : 'Цель будет достигнута';
 };
 
 console.log( getTargetMonth(mission, accumulatedMonth) );
