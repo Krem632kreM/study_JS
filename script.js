@@ -1,24 +1,30 @@
-'use strict'
+/*let week = ["Понедельник", 'Вторник', "Среда", "Четверг", "Пятница", "Суббота", "Воскресение"];
 
-let arr = ["254","25","58","654","48","55654","1"];
+ for (let i=0; i<week.length; i++) {
+    console.log(week[i]);
+    if (i === 6 || i === 7) ? 'strong' : 'span';
+ };*/
 
-  for (let i=0; i<7; i++) {
+ 'use strict';
+const week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 
-    if (arr[i][0] === '2' || arr[i][0] === '4') {
-        console.log(arr[i]);
-    }
-  }
+const todayDay = new Date();
 
-  var array = [];
-  for (let i = 1; i <= 100; i++) {
-      for (let j = 1; j <= i; j++) {
-          if (i % j === 0) {
-              array.push(j);
-          }
-      } if (array.length<=2) { 
-            console.log("Число " + i + " простое. Его делители: " + array.join(' и '));
-        }
-        
-        array=[];
-  }
-
+const days = () => {
+    week.forEach((item, i) => {
+        /*if (i === +todayDay.getDay()-1) { // Если текущий день недели то от номера текущей даты отнимаем единицу, 
+            //так как массив у нас начинается с нуля
+            document.write(String(todayDay.getDay()).bold());
+    
+        }*/
+        if (item === 'Суббота' || item === 'Воскресенье') { // Если выходные то
+            document.write(week[i].italics()+ "<pre><\/pre>");
+            } else if (i === +todayDay.getDay()-1) {
+                document.write(week[i].bold()+ "<pre><\/pre>");
+                
+            } else {
+            document.write(week[i] + "<pre><\/pre>");
+            }
+    });
+};
+days(); // Вызываем функцию;
