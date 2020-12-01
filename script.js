@@ -15,8 +15,6 @@ let start = function() {
 start();
 
 let appData = {
-    income: {},
-    addIncome: [],
     expenses: {},
     addExpenses: [],
     deposit: false,
@@ -78,3 +76,8 @@ console.log('Расходы за месяц ' + appData.getExpensesMonth());
 appData.getBudget();
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
+
+console.log ("Наша программа включает в себя данные: ");
+for (var prop in appData) {
+    console.log ("Свойство: " + prop + " Значение: " + appData[prop] );
+}
