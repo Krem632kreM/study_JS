@@ -3,81 +3,24 @@ let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n)
 };
 
-let money;
-
-let start = function() {
-
-    do {
-        money = +prompt('Ваш месячный доход?');
-    } while (!isNumber(money));
+let isString = function(str) {
+    return (typeof str === "string" || str instanceof String);
 };
 
-start();
+let str = prompt("Введите строку");
 
-let appData = {
-    expenses: {},
-    addExpenses: [],
-    deposit: false,
-    mission: 500000,
-    period: 6,
-    asking: function() {
-        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-        appData.addExpenses = addExpenses.toLowerCase().split(',');
-        appData.deposit = confirm('Есть ли у вас депозит в банке?');
-        addExpenses.toLowerCase().split(',');
-        
-        for (let i=0; i<2;i++) {
-            appData.expenses[prompt('Введите обязательную статью расходов?')] = +prompt('Во сколько это обойдется?');
-        }
-    },
-    budget: money,
-    budgetDay: null,
-    budgetMonth: null,
-    expensesMonth: null,  
-    getExpensesMonth: function() {
-        let sum = 0;
-    
-        for (var prop in appData.expenses) {
-            sum = sum + appData.expenses[prop];
-        }
-        return sum;
-    },
+function func (str) {
+    if (!isString(str)) {
+        alert("Это не строка!");
+    }
 
-    getBudget: function() {  
-        appData.budgetMonth = appData.budget - appData.getExpensesMonth();
-        appData.budgetDay = appData.budgetMonth/30;
+    str = str.replace(/\s+/g, '');
+    console.log("Без пробелов "+ str);
 
-    },
-    
-    getTargetMonth: function() {
-        return Math.ceil(appData.mission/appData.getExpensesMonth()) < 0 ? 
-        'Цель не будет достигнута' : 'Цель будет достигнута за ' + Math.ceil(appData.mission/appData.budgetMonth) + ' месяцев';
-    },
-
-    getStatusIncome: function(){
-        if (appData.budgetDay >= 1200) {
-           console.log('У вас высокий уровень дохода');
-           } else if (appData.budgetDay>=600 && appData.budgetDay<1200) {
-           console.log('У вас средний уровень дохода');
-           } else if (appData.budgetDay>=0 && appData.budgetDay<600) {
-           console.log('К сожалению у вас уровень дохода ниже среднего');
-           } else {
-           console.log('Что-то пошло не так');
-           }
-        },
-
-    
-    
-
-};
-
-appData.asking();
-console.log('Расходы за месяц ' + appData.getExpensesMonth());
-appData.getBudget();
-console.log(appData.getTargetMonth());
-console.log(appData.getStatusIncome());
-
-console.log ("Наша программа включает в себя данные: ");
-for (var prop in appData) {
-    console.log ("Свойство: " + prop + " Значение: " + appData[prop] );
+    if(str.length > 30) {
+        str = str.substr(0, 30) + '...';
+    }
+    console.log("Замена на ... после 30ого символа: " + str);
 }
+
+func(str);
