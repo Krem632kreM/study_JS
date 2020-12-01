@@ -27,7 +27,16 @@ let appData = {
         addExpenses.toLowerCase().split(',');
         
         for (let i=0; i<2;i++) {
-            appData.expenses[prompt('Введите обязательную статью расходов?')] = +prompt('Во сколько это обойдется?');
+            let value;
+            let property;
+
+            property = prompt('Введите обязательную статью расходов?');
+
+                do {
+                    value = +prompt('Во сколько это обойдется?');
+                } while (!isNumber(value));
+
+                appData.expenses[property] = value;
         }
     },
     budget: money,
