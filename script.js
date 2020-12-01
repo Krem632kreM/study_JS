@@ -1,26 +1,24 @@
 'use strict'
-let isNumber = function(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n)
-};
 
-let isString = function(str) {
-    return (typeof str === "string" || str instanceof String);
-};
+let arr = ["254","25","58","654","48","55654","1"];
 
-let str = prompt("Введите строку");
+  for (let i=0; i<7; i++) {
 
-function func (str) {
-    if (!isString(str)) {
-        alert("Это не строка!");
+    if (arr[i][0] === '2' || arr[i][0] === '4') {
+        console.log(arr[i]);
     }
+  }
 
-    str = str.replace(/\s+/g, '');
-    console.log("Без пробелов "+ str);
+  var array = [];
+  for (let i = 1; i <= 100; i++) {
+      for (let j = 1; j <= i; j++) {
+          if (i % j === 0) {
+              array.push(j);
+          }
+      } if (array.length<=2) { 
+            console.log("Число " + i + " простое. Его делители: " + array.join(' и '));
+        }
+        
+        array=[];
+  }
 
-    if(str.length > 30) {
-        str = str.substr(0, 30) + '...';
-    }
-    console.log("Замена на ... после 30ого символа: " + str);
-}
-
-func(str);
