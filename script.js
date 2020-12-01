@@ -33,7 +33,7 @@ let appData = {
             property = prompt('Введите обязательную статью расходов?');
 
                 do {
-                    value = +prompt('Во сколько это обойдется?');
+                    value = prompt('Во сколько это обойдется?');
                 } while (!isNumber(value));
 
                 appData.expenses[property] = value;
@@ -46,7 +46,7 @@ let appData = {
     getExpensesMonth: function() {
         
         for (let prop in appData.expenses) {
-            appData.expensesMonth +=  appData.expenses[prop];
+            appData.expensesMonth +=  +appData.expenses[prop];
         }
     },
 
