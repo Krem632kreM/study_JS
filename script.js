@@ -141,3 +141,4 @@ for (let word of appData.addExpenses) {
 }
 
 console.log(str.replace(/,\s*$/, ""));
+console.log(appData.addExpenses);
