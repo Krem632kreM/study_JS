@@ -21,7 +21,17 @@ let additionalIncomeItem1 = document.querySelectorAll('.additional_income-item')
 console.log(additionalIncomeItem0);
 console.log(additionalIncomeItem1);
 
-    function inputContainValue() {
+
+
+let resultTotalBudgetMonthValue = document.getElementsByClassName("result-total budget_month-value")[0];
+let resultTotalBudgetDayValue = document.getElementsByClassName('result-total budget_day-value')[0];
+let resultTotalExpensesMonthValue = document.getElementsByClassName('result-total expenses_month-value')[0];
+let resultTotalAdditionalIncomeValue  = document.getElementsByClassName('result-total additional_income-value')[0];
+let resultTotalAdditionalExpensesValue = document.getElementsByClassName('result-total additional_expenses-value')[0];
+let resultTotalIncomePeriodValue = document.getElementsByClassName('result-total income_period-value')[0];
+let resultTotalTargetMonthValue = document.getElementsByClassName('result-total target_month-value')[0];
+
+   /* function inputContainValue() {
         let allElements = document.getElementsByTagName("input");
         for(let i=0; i < allElements.length; i++)
         {
@@ -31,45 +41,38 @@ console.log(additionalIncomeItem1);
         }
     };
 
-    inputContainValue();
+    inputContainValue();*/
 
 
-    console.log(inputContainValueInClassName13);
-    console.log(inputContainValueInClassName14);
-    console.log(inputContainValueInClassName15);
-    console.log(inputContainValueInClassName16);
-    console.log(inputContainValueInClassName17);
-    console.log(inputContainValueInClassName18);
-    console.log(inputContainValueInClassName19);
+    console.log(resultTotalBudgetMonthValue);
+    console.log(resultTotalBudgetDayValue);
+    console.log(resultTotalExpensesMonthValue);
+    console.log(resultTotalAdditionalIncomeValue);
+    console.log(resultTotalAdditionalExpensesValue);
+    console.log(resultTotalIncomePeriodValue);
+    console.log(resultTotalTargetMonthValue);
 
     
 
-let inputNotContainValueInClassName0 = document.querySelector(".salary-amount");
-let inputNotContainValueInClassName1 = document.querySelector(".income-title");
-let inputNotContainValueInClassName2 = document.querySelector(".income-amount");
-let inputNotContainValueInClassName3 = document.querySelector(".additional_income-item");
-let inputNotContainValueInClassName4 = document.querySelector(".additional_income-item");
-let inputNotContainValueInClassName5 = document.querySelector(".expenses-title");
-let inputNotContainValueInClassName6 = document.querySelector(".expenses-amount");
-let inputNotContainValueInClassName7 = document.querySelector(".additional_expenses-item");
-let inputNotContainValueInClassName8 = document.querySelector(".deposit-checkmark");
-let inputNotContainValueInClassName9 = document.querySelector(".deposit-amount");
-let inputNotContainValueInClassName10 = document.querySelector(".deposit-percent");
-let inputNotContainValueInClassName11 = document.querySelector(".target-amount");
-let inputNotContainValueInClassName12 = document.querySelector(".period-select");
+let SalaryAmount = document.querySelector(".salary-amount");
+let IncomeTitle1 = document.querySelector(".income-title1");
+let IncomeAmount = document.querySelector(".income-amount");
+
+let ExpensesTitle1 = document.querySelector(".expenses-title1");
+let ExpensesAmount = document.querySelector(".expenses-amount");
+let AdditionalExpensesItem = document.querySelector(".additional_expenses-item");
+
+let TargetAmount = document.querySelector(".target-amount");
+let PeriodSelect = document.querySelector(".period-select");
 
 
-console.log(inputNotContainValueInClassName1);
-console.log(inputNotContainValueInClassName2);
-console.log(inputNotContainValueInClassName3);
-console.log(inputNotContainValueInClassName4);
-console.log(inputNotContainValueInClassName5);
-console.log(inputNotContainValueInClassName6);
-console.log(inputNotContainValueInClassName7);
-console.log(inputNotContainValueInClassName8);
-console.log(inputNotContainValueInClassName9);
-console.log(inputNotContainValueInClassName10);
-console.log(inputNotContainValueInClassName11);
-console.log(inputNotContainValueInClassName12);
+console.log(SalaryAmount);
+console.log(IncomeTitle1);
+console.log(IncomeAmount);
+console.log(ExpensesTitle1);
+console.log(ExpensesAmount);
+console.log(AdditionalExpensesItem);
+console.log(TargetAmount);
+console.log(PeriodSelect);
     
     
