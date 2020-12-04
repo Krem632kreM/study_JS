@@ -8,7 +8,7 @@ books[0].append(book[2]);
 book[3].before(book[4]);
 
 
-document.getElementsByTagName('a')[2].innerHTML = "Новый текст";
+document.getElementsByTagName('a')[2].innerHTML = "Книга 3. this и Прототипы Объектов";
 
 const advertising = document.querySelector('.adv');
 advertising.remove();
