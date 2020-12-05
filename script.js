@@ -39,22 +39,9 @@ let appData = {
     deposit: false,
     percentDeposit: 0,
     moneyDeposit: 0, 
-    //mission: 500000,
-    //period: 6,
-
     start: function() {
 
-        /*if(salaryAmount.value === ''){
-            alert("Ошибка! поле месячный доход должно быть заполнено");
-            return;
-        }*/
-
-        /*do {
-            money = +prompt('Ваш месячный доход?', 50000);
-        } while (!isNumber(money));*/
         appData.budget = +salaryAmount.value;
-        console.log(salaryAmount.value);
-
         appData.getExpenses();
         appData.getIncome();
         appData.getExpensesMonth();
@@ -107,7 +94,7 @@ let appData = {
         //console.log(item);
         });
     },
-     getIncome: function() {
+    getIncome: function() {
         incomeItems.forEach(function(item) {
             let itemIncome = item.querySelector('.income-title1').value;   
             let cashIncome = item.querySelector('.income-amount').value;
@@ -156,30 +143,6 @@ let appData = {
         });
 
     },
-    asking: function() {
-
-        if (confirm('Есть ли у вас дополнительный источник заработка?')) {
-            let itemIncome;
-            let cashIncome;
-            
-                do {
-                    itemIncome = prompt('Какой у вас есть дополнительный заработок?');
-                } while (isNumber(itemIncome));
-
-                do {
-                    cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?');
-                } while (!isNumber(cashIncome));
-            
-                appData.income[itemIncome] = cashIncome;
-
-        }
-
-        
-        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'инт,комм,проезд');
-        appData.addExpenses = addExpenses.toLowerCase().split(',');
-        appData.deposit = confirm('Есть ли у вас депозит в банке?');
-        addExpenses.toLowerCase().split(',');
-    },
     getExpensesMonth: function() {
         
         for (let prop in appData.expenses) {
@@ -207,18 +170,13 @@ let appData = {
             },
             getInfoDeposit: function () {
                 if(appData.deposit) {
-                    //let val;
-
                     do {
                         appData.percentDeposit = prompt('Какой годовой процент?');
                     } while (!isNumber(appData.percentDeposit));
-                   // appData.percentDeposit = val;
-
+                   
                     do {
                         appData.moneyDeposit = prompt('Какая сумма заложена?');
-                    } while (!isNumber(appData.moneyDeposit));
-
-                    
+                    } while (!isNumber(appData.moneyDeposit));  
                 }
             },
             calcPeriod: function() {
