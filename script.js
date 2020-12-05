@@ -59,10 +59,10 @@ let appData = {
         additionalIncomeValue.value = appData.addIncome.join(", ");
         targetMonthValue.value = Math.ceil(appData.getTargetMonth());
         incomePeriodValue.value = appData.calcPeriod();
-        incomePeriodValue.value = appData.budgetMonth * periodSelect.value;
 
-
-    
+        periodSelect.oninput = function() {
+        incomePeriodValue.value = appData.budgetMonth * periodSelect.value; 
+        };
     },
 
     addExpensesBlock: function() {
