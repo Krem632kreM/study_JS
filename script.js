@@ -101,29 +101,7 @@ let appData = {
             if(itemIncome !== '' && cashIncome !== '') {
                 appData.income[itemIncome] = cashIncome;
             }
-            //console.log(item);
             });
-
-        /*if (confirm('Есть ли у вас дополнительный источник заработка?')) {
-            let itemIncome;
-            let cashIncome;
-            
-                do {
-                    itemIncome = prompt('Какой у вас есть дополнительный заработок?');
-                } while (isNumber(itemIncome));
-
-                do {
-                    cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?');
-                } while (!isNumber(cashIncome));
-            
-                appData.income[itemIncome] = cashIncome;
-
-        }
-
-        for (let key in appData.income) {
-            appData.incomeMonth += +appData.income[key];
-        }*/
-
     },
     getAddExpenses: function() {
         let addExpenses = additionalExpensesItem.value.split(',');
