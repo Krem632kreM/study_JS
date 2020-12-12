@@ -55,19 +55,18 @@ let appData = {
     },
 
     reset: function() {
-        appData.budget = 0,
-        appData.budgetDay =null,
-        appData.budgetMonth = null,
-        appData.expensesMonth=null,  
-        appData.income = {},
-        appData.incomeMonth = 0,
-        appData.addIncome = [],
-        appData.expenses = {},
-        appData.addExpenses = [],
-        appData.deposit = false,
-        appData.percentDeposit = 0,
-        appData.moneyDeposit = 0;
-        console.log(appData.budgetMonth);
+        this.budget = 0,
+        this.budgetDay =null,
+        this.budgetMonth = null,
+        this.expensesMonth=null,  
+        this.income = {},
+        this.incomeMonth = 0,
+        this.addIncome = [],
+        this.expenses = {},
+        this.addExpenses = [],
+        this.deposit = false,
+        this.percentDeposit = 0,
+        this.moneyDeposit = 0;
 
         salaryAmount.value = "";
         incomeAmount.value = "";
@@ -86,7 +85,6 @@ let appData = {
         }
         incomeItems = [];
 
-        console.log(incomeItems[1]);
 
         for (let i = 0; i<expensesItems.length; i++) {
             expensesItems[i].querySelector(".expenses-title1").value = '';
@@ -108,7 +106,7 @@ let appData = {
 
     showResult: function() {
         budgetMonthValue.value = this.budgetMonth;
-        budgetDayValue.value = Math.floor(appData.budgetDay);
+        budgetDayValue.value = Math.floor(this.budgetDay);
         expensesMonthValue.value = this.expensesMonth;
         additionalExpensesValue.value = this.addExpenses.join(", ");
         additionalIncomeValue.value = this.addIncome.join(", ");
@@ -148,7 +146,6 @@ let appData = {
             appData.expenses[itemExpenses] = cashExpenses;
         }
         });
-        console.log(this);
     },
     getIncome: function() {
         incomeItems.forEach(function(item) {
@@ -239,23 +236,37 @@ function buttonBlocked() {
   buttonBlocked();
 
 startButton.addEventListener('click', function() {
-    appData.start.apply(appData);
-    //appData.start();
-    console.log(this);
+    this.start();
     cancelButton.style.display = 'block';
     startButton.replaceWith(cancelButton);
-});
+}.bind(appData));
 
-cancelButton.addEventListener('click', appData.reset);
-expensesPlus1.addEventListener('click', appData.addExpensesBlock);
-expensesPlus0.addEventListener('click', appData.addIncomeBlock);
+cancelButton.addEventListener('click', function() {
+    this.reset();
+}.bind(appData));
 
-appData.getInfoDeposit();
-let str = "";
-for (let word of appData.addExpenses) {
-    word = (word.charAt(0).toUpperCase() + word.substring(1));
-    str = str+word+", ";
-}
+expensesPlus1.addEventListener('click', function() {
+    this.addExpensesBlock();
+}.bind(appData));
+
+expensesPlus0.addEventListener('click', function() {
+    this.addIncomeBlock();
+}.bind(appData));
+
+let bound = function returnFunc() {
+    return this.getInfoDeposit();
+}.bind(appData);
+bound();
+
+
+let pound = function returnFunc() {
+    let str = "";
+    for (let word of this.addExpenses) {
+        word = (word.charAt(0).toUpperCase() + word.substring(1));
+        str = str+word+", ";
+    }
+}.bind(appData);
+pound();
 
 let range = document.getElementsByClassName("title period-amount")[0];
 
