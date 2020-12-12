@@ -43,16 +43,15 @@ let appData = {
     moneyDeposit: 0, 
 
     start: function() {
-        appData.budget = +salaryAmount.value;
-        appData.getExpenses();
-        appData.getIncome();
-        appData.getExpensesMonth();
-        appData.getAddExpenses();
-        appData.getAddIncome();
-        appData.getBudget();
-        appData.BlockedLeftInput();
-        appData.showResult();
-        console.log(this);
+        this.budget = +salaryAmount.value;
+        this.getExpenses();
+        this.getIncome();
+        this.getExpensesMonth();
+        this.getAddExpenses();
+        this.getAddIncome();
+        this.getBudget();
+        this.BlockedLeftInput();
+        this.showResult();
     },
 
     reset: function() {
@@ -264,7 +263,7 @@ periodSelect.onchange = function() {
     range.textContent = periodSelect.value;
 };
 
-appData.start.apply(appData);
+
 
 
 
