@@ -52,7 +52,7 @@ let appData = {
         appData.getBudget();
         appData.BlockedLeftInput();
         appData.showResult();
-        //console.log(this);
+        console.log(this);
     },
 
     reset: function() {
@@ -240,11 +240,13 @@ function buttonBlocked() {
   buttonBlocked();
 
 startButton.addEventListener('click', function() {
-    appData.start();
+    appData.start.apply(appData);
+    //appData.start();
     console.log(this);
     cancelButton.style.display = 'block';
     startButton.replaceWith(cancelButton);
-}, true);
+});
+
 cancelButton.addEventListener('click', appData.reset);
 expensesPlus1.addEventListener('click', appData.addExpensesBlock);
 expensesPlus0.addEventListener('click', appData.addIncomeBlock);
@@ -263,4 +265,6 @@ periodSelect.onchange = function() {
 };
 
 appData.start.apply(appData);
- 
+
+
+
