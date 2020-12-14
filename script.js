@@ -255,13 +255,13 @@ let incomeItems = document.querySelectorAll(".income-items");
             this.start();
             cancelButton.style.display = 'block';
             startButton.replaceWith(cancelButton);
-        }.bind(appData));
+        }.bind(this));
 
-        cancelButton.addEventListener('click', appData.reset.bind(appData));
+        cancelButton.addEventListener('click', this.reset.bind(this));
 
-        expensesPlus.addEventListener('click', appData.addExpensesBlock.bind(appData));
+        expensesPlus.addEventListener('click', this.addExpensesBlock.bind(this));
 
-        incomePlus.addEventListener('click', appData.addIncomeBlock.bind(appData));
+        incomePlus.addEventListener('click', this.addIncomeBlock.bind(this));
 
         const range = document.getElementsByClassName("title period-amount")[0];
 
@@ -274,14 +274,3 @@ let incomeItems = document.querySelectorAll(".income-items");
     const appData = new AppData();
     console.log(appData);
     appData.eventsListeners();
-
-
-
-
-
-
-
-
-
-
-
