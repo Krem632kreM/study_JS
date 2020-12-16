@@ -279,6 +279,10 @@ depositBank.removeEventListener('change', this.changePercent);
 }
 
 eventsListeners() {
+startButton.disabled = false;
+
+
+
 
 salaryAmount.addEventListener("input", buttonBlocked);
 function buttonBlocked() {
@@ -290,19 +294,24 @@ startButton.disabled = true;
 buttonBlocked();
 
 
+
+
 startButton.addEventListener('click', function() {
 
-if (!isNumber(depositPercent.value) || depositPercent.value<=0 || depositPercent.value>100)
-{
-depositPercent.value ='';
-const tmp = alert("Введите корректное значение в поле проценты");
-startButton.disabled = true;
+    if (!isNumber(depositPercent.value) || depositPercent.value<=0 || depositPercent.value>100) {
+        const tmp = alert("Введите корректное значение в поле проценты");
+        depositPercent.value ='';
+        startButton.disabled = true;
+        this.eventsListeners();
+    } else {
 
-} else {
+
 this.start();
 cancelButton.style.display = 'block';
 startButton.replaceWith(cancelButton);
-};
+    }
+
+
 }.bind(this));
 
 cancelButton.addEventListener('click', this.reset.bind(this));
